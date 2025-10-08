@@ -1,0 +1,119 @@
+\documentclass[aps,prb,reprint,showpacs,superscriptaddress,longbibliography]{revtex4-2}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\begin{document}
+
+\title{Evidências Experimentais e Estatísticas de Regime Quântico em Circuitos Elétricos Supercondutores}
+
+\author{Autor Exemplo}
+\affiliation{Instituição de Pesquisa}
+\date{\today}
+
+\begin{abstract}
+Apresenta-se um protocolo acadêmico completo para demonstrar, de modo reprodutível e verificável, a presença de efeitos quânticos em circuitos elétricos baseados em junções Josephson. O método baseia-se em três pilares: (i) observação experimental de assinaturas físicas canônicas do regime quântico; (ii) análise estatística formal comparando modelos térmicos clássicos e de tunelamento quântico macroscópico (MQT); (iii) reprodutibilidade via depósito de dados, código e ambiente computacional.
+\end{abstract}
+
+\maketitle
+
+\section{Fundamentos Teóricos}
+
+Considere uma junção Josephson com corrente crítica $I_c$, capacitância $C$ e resistência $R$. A energia de Josephson é
+\begin{equation}
+E_J = \frac{\hbar I_c}{2e}.
+\end{equation}
+A frequência de plasma efetiva é dada por
+\begin{equation}
+\omega_p(I) \approx \sqrt{\frac{2e I_c}{\hbar C}}\;\bigl(1 - (I/I_c)^2\bigr)^{1/4}.
+\end{equation}
+A altura da barreira de potencial no poço tipo ``washboard'' é
+\begin{equation}
+\Delta U(I) \approx \frac{2\sqrt{2}}{3} E_J \bigl(1 - I/I_c \bigr)^{3/2}.
+\end{equation}
+
+\subsection{Taxas de escape}
+
+Para ativação térmica (TA),
+\begin{equation}
+\Gamma_{\mathrm{TA}}(T) \propto \omega_p \exp\left(-\frac{\Delta U}{k_BT}\right).
+\end{equation}
+Para tunelamento quântico macroscópico (MQT) em baixa temperatura,
+\begin{equation}
+\Gamma_{\mathrm{MQT}} \approx a\,\omega_p \exp\left[-\frac{7.2\,\Delta U}{\hbar\,\omega_p}\left(1+\frac{0.87}{Q}\right)\right],
+\end{equation}
+onde $Q$ é o fator de qualidade efetivo do poço.
+
+A assinatura chave é a saturação da taxa de escape $\Gamma(T)$ para $T \to 0$, incompatível com ativação térmica.
+
+\section{Métodos Experimentais}
+
+\subsection{Montagem}
+\begin{itemize}
+\item Amostras: junções Josephson caracterizadas quanto a $I_c$, $R$, $C$.
+\item Criogenia: $^3$He ou diluição, estabilidade de temperatura $<1$ mK.
+\item Blindagem: $\mu$-metal + cobre OFHC; filtros RC e $\pi$ em linhas.
+\item Medição: rampa de corrente controlada; detecção de switching; ADC sincronizado.
+\item Micro-ondas: gerador sintetizado com acoplamento calibrado.
+\end{itemize}
+
+\subsection{Protocolo}
+\begin{enumerate}
+\item Medir a distribuição de correntes de escape $P(I_\mathrm{sw})$ para diferentes temperaturas.
+\item Ajustar os dados a $\Gamma_{\mathrm{TA}}(T)$ e $\Gamma_{\mathrm{MQT}}$.
+\item Realizar espectroscopia de micro-ondas e identificar ressonâncias discretas.
+\item Executar controles negativos e experimentos de ablação.
+\end{enumerate}
+
+\section{Análise Estatística}
+
+\subsection{Ajuste de Modelos}
+Os parâmetros $\omega_p$, $\Delta U$, $Q$ são extraídos por máxima verossimilhança com intervalos de confiança de 95\%. São comparados os modelos TA (clássico) e MQT (quântico) por razão de verossimilhança (LRT) e fator de Bayes $BF_{Q/C}$.
+
+\subsection{Critérios de Evidência}
+\begin{itemize}
+\item Saturação de $\Gamma(T)$ em baixa $T$ incompatível com TA.
+\item $BF_{Q/C} > 10$ indicando forte preferência pelo modelo quântico.
+\item Presença de níveis discretos e coerentes em espectroscopia.
+\item Controles negativos sem assinaturas quânticas.
+\end{itemize}
+
+\section{Reprodutibilidade}
+
+\subsection{Depósito de Dados}
+Todos os dados brutos, scripts de análise e ambientes computacionais (conda/Docker) são publicados com DOI e hashes SHA-256. A estrutura recomendada segue padrões reprodutíveis:
+
+\begin{verbatim}
+PROJECT_ROOT/
+  CODE/
+  DATA/RAW/
+  DATA/PROC/
+  ANALYSIS/
+  RESULTS/
+  DOCS/
+  ENV/
+  PROVENANCE/
+\end{verbatim}
+
+\section{Conclusão}
+
+O protocolo apresentado fornece base experimental e estatística sólida para distinguir regimes quânticos e clássicos em circuitos supercondutores, de forma verificável e replicável por terceiros.
+
+\bibliographystyle{apsrev4-2}
+\begin{thebibliography}{99}
+
+\bibitem{devoret} M. H. Devoret, J. M. Martinis, e J. Clarke, Phys. Rev. Lett. \textbf{55}, 1908 (1985).
+
+\bibitem{martinis1987} J. M. Martinis, M. H. Devoret, J. Clarke, Phys. Rev. B \textbf{35}, 4682 (1987).
+
+\bibitem{tinkham} M. Tinkham, \textit{Introduction to Superconductivity}, 2nd ed., McGraw–Hill (1996).
+
+\bibitem{nakamura1999} Y. Nakamura, Y. Pashkin, J. Tsai, Nature \textbf{398}, 786 (1999).
+
+\end{thebibliography}
+
+\end{document}
