@@ -1,5 +1,9 @@
 # Eletron-efeitos-quântico
 
+**Estado:** `REFERENCE`  
+**Proprietário lógico:** `research-governance`  
+**Repositório:** [`instituto-rafael/Eletron-efeitos-qu-ntico`](https://github.com/instituto-rafael/Eletron-efeitos-qu-ntico)
+
 ## Fenômenos Quânticos em Circuitos Elétricos e Estruturas Simbióticas de Representação
 
 Este repositório contém uma investigação abrangente sobre fenômenos quânticos em sistemas elétricos, combinando física experimental clássica com estruturas simbióticas alternativas de representação matemática.
